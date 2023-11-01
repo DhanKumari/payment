@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+
+{% endblock %} {% block content %}
+<div class="col-md-4 col-md-offset-4">
+  <form
+    method="POST"
+    action="{{ url_for('main.update_workout', workout_id=workout.id) }}"
+  >
+    <h2>Update Workout</h2>
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="alert alert-info" role="alert">>
+      {{ messages[0] }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %} {% endwith %}
+    <div class="form-group">
+      <label for="pushup">Push-Ups</label>
+      <input
+        type="number"
+        class="form-control"
+        id="pushup"
+        name="pushup"
+        aria-describedby="pushupHelp"
+        placeholder="Enter number of pushup done"
+      />
+    </div>
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input
+        type="text"
+        class="form-control"
+        id="comment"
+        name="comment"
+        aria-describedby="pushupHelp"
+        placeholder="any comments"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Update Workout</button>
+  </form>
+</div>
+{% endblock %}

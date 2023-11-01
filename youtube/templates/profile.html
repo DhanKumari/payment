@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block head %}
+
+{{ super() }}
+
+{% endblock %}
+{% block content %}
+{% if name %}
+<h1>welcome {{name}} 🎃 </h1>
+<br>
+{% else %}
+<h1> plz login first</h1>
+{% endif%}
+
+{% endblock %}
